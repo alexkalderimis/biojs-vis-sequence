@@ -1,5 +1,5 @@
 {
-  "package": "biojs-vis-sequence",
+  "name": "biojs-vis-sequence",
   "version": "0.1.2",
   "main": "build/sequence.min.js",
   "description": "Sequence visualisation"
