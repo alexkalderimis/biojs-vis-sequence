@@ -1,6 +1,22 @@
+<html>
+
+<head>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="./build/sequence.js"></script>
+
+    <!-- Latest compiled and minified CSS>
+    -->
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <style>
+    .seq-base.bbb, .interbase.bbb { background: red; color: white; }
+    .seq-base.ccc, .interbase.ccc { background: blue; color: white; }
+    </style>
+</head>
+
+<body>
 <div id="holder"></div>
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="./build/sequence.js"></script>
 <script>
 var mySequence;
 window.onload = function() {		 
@@ -91,8 +107,4 @@ window.onload = function() {
 	mySequence.addHighlight( { "start": 12, "end": 26, "kind": "ccc" } );
 };	    
 </script>
-
-<style>
-.seq-base.bbb, .interbase.bbb { background: red; color: white; }
-.seq-base.ccc, .interbase.ccc { background: blue; color: white; }
-</style>
+</body>

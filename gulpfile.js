@@ -8,6 +8,7 @@ var uglify = require('gulp-uglify');
 // testing
 var mocha = require('gulp-mocha');
 
+var webserver = require('gulp-webserver');
 var mochaPhantomJS = require('gulp-mocha-phantomjs'); 
 
 // code style
@@ -136,6 +137,18 @@ function exposeBundles(b){
     }
   }
 }
+
+gulp.task('webserver', function () {
+  var server = webserver({
+    port: (parseInt(process.env.PORT, 10) || 8000),
+    livereload: true,
+    fallback: 'index.html',
+    directoryListing: true
+  });
+  gulp.src('.').pipe(server);
+});
+
+gulp.task('dev', ['webserver', 'watch']);
 
 // watch task for browserify 
 // watchify has an internal cache -> subsequent builds are faster
