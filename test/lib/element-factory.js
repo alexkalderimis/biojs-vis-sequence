@@ -56,6 +56,18 @@ function getTextOfTree (tree) {
   }
   return buff.join('');
 }
+function findByClassName (tree, className) {
+  var found = [];
+  if (tree.className && tree.className.indexOf(className) >= 0) {
+    found.push(tree);
+  }
+  if (tree._children) {
+    tree._children.forEach(function (child) {
+      found = found.concat(findByClassName(child, className));
+    });
+  }
+  return found;
+}
 
 var ElementFactory = module.exports = {
   createElement: function (tagName) {
@@ -68,6 +80,7 @@ var ElementFactory = module.exports = {
   createTextNode: function (text) {
     return new MockTextNode(text);
   },
+  findByClassName: findByClassName,
   asText: getTextOfTree
 };
 
