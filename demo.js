@@ -1,59 +1,59 @@
 var mySequence;
+var seq1080 = '1111111111' +
+              '2222222222' +
+              '3333333333' + 
+              '4444444444' +
+              '5555555555' +
+              '6666666666' +
+              '7777777777' +
+              'gattacagatgattacagatgattacagat' + 
+              'acactcgagctgtgaccgccgcacagtcaacaact' +
+              'aactgccttcgttaatatcctctgaataagccaac' +
+              'tttgaatcacaagacgcataccaaacatgcacgga' +
+              'taccgaacctacaacatggagagccaccatgccca' +
+              'tcacgacgccagtcccgtggaccagaagcccctgg' +
+              'ttgtggacctcttggccacccagtacggcaagccc' +
+              'cagacaccgcctccctcgccaaatggtaagtttaa' +
+              'agataaagccgagcaaacgtgacgagttacttaca' +
+              'cccaatctttcctctgtccaaaacagaatgcctat' +
+              'ccagtccggataactccttgaacggcagccgcggc' +
+              'tcggagattcccgccgacccgtcggtacgccgcta' +
+              'tcgcaccgccttcacccgtgaccagctgggtcgct' +
+              'tggagaaggagttctacaaggagaactacgtgtcc' +
+              'cgtccccgtcgctgcgaactggccgcccagctgaa' +
+              'cctcccggagagcacgatcaaggtgtggttccaga' +
+              'accgccgcatgaaggacaagcgtcagaggatcgcc' +
+              'gtcgcctggccctacgcagccgtctactccgatcc' +
+              'cgccttcgccgcctccatcctccaggccgccgcca' +
+              'acagcgtgggcatgccctatccgccctacgccccc' +
+              'gctgctgccgccgctgctgccgccgccgctgccgt' +
+              'ggccaccaatccgatgatggccaccggaatgcccc' +
+              'cgatgggcatgccccagatgcccacaatgcagatg' +
+              'cccggacactcgggacatgccggccatccatcgcc' +
+              'ctacggacagtaccgctacacgccctaccacatcc' +
+              'ccgcccgcccggcgccgccacatcccgctggtcct' +
+              'catatgcatcatccgcacatgatgggatccagcgc' +
+              'aacgggatcgtcgtactccgccggtgccgccggcc' +
+              'ttttgggcgctctgccctccgccacctgctatacc';
+
 window.onload = function() {		 
-	var theSequence = '1111111111' +
-                      '2222222222' +
-                      '3333333333' + 
-                      '4444444444' +
-                      '5555555555' +
-                      '6666666666' +
-                      '7777777777' +
-                      'gattacagat' +
-                      'gattacagat' +
-                      'gattacagat' + 
-                      'acactcgagctgtgaccgccgcacagtcaacaact' +
-                      'aactgccttcgttaatatcctctgaataagccaac' +
-                      'tttgaatcacaagacgcataccaaacatgcacgga' +
-                      'taccgaacctacaacatggagagccaccatgccca' +
-                      'tcacgacgccagtcccgtggaccagaagcccctgg' +
-                      'ttgtggacctcttggccacccagtacggcaagccc' +
-                      'cagacaccgcctccctcgccaaatggtaagtttaa' +
-                      'agataaagccgagcaaacgtgacgagttacttaca' +
-                      'cccaatctttcctctgtccaaaacagaatgcctat' +
-                      'ccagtccggataactccttgaacggcagccgcggc' +
-                      'tcggagattcccgccgacccgtcggtacgccgcta' +
-                      'tcgcaccgccttcacccgtgaccagctgggtcgct' +
-                      'tggagaaggagttctacaaggagaactacgtgtcc' +
-                      'cgtccccgtcgctgcgaactggccgcccagctgaa' +
-                      'cctcccggagagcacgatcaaggtgtggttccaga' +
-                      'accgccgcatgaaggacaagcgtcagaggatcgcc' +
-                      'gtcgcctggccctacgcagccgtctactccgatcc' +
-                      'cgccttcgccgcctccatcctccaggccgccgcca' +
-                      'acagcgtgggcatgccctatccgccctacgccccc' +
-                      'gctgctgccgccgctgctgccgccgccgctgccgt' +
-                      'ggccaccaatccgatgatggccaccggaatgcccc' +
-                      'cgatgggcatgccccagatgcccacaatgcagatg' +
-                      'cccggacactcgggacatgccggccatccatcgcc' +
-                      'ctacggacagtaccgctacacgccctaccacatcc' +
-                      'ccgcccgcccggcgccgccacatcccgctggtcct' +
-                      'catatgcatcatccgcacatgatgggatccagcgc' +
-                      'aacgggatcgtcgtactccgccggtgccgccggcc' +
-                      'ttttgggcgctctgccctccgccacctgctatacc';
 
 	mySequence = new Sequence({
-		sequence : theSequence,
+		sequence : seq1080,
 		target : "#holder",
 		format : 'CODATA',
 		formatOptions : {
 			title:false,
 			footer:false
 		},
-		id : 'P918283'
+		id : 'dummy'
 	});
 
-    mySequence.on('selection-changed', console.log.bind(console, 'SELECTION'));
+  // DEMO of events - 
+  var evt = Sequence.EVT_ON_SELECTION_CHANGED;
+  mySequence.on(evt, console.log.bind(console, evt));
 
-	//mySequence.setSelection(1,4);
-	mySequence.setSelection(100,150);
+	mySequence.setSelection(81, 87); // Should read GATTACA
 
 	mySequence.addAnnotation({
 		name:"track1",
