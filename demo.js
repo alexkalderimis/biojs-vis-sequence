@@ -59,7 +59,7 @@ function runDemo () {
   // How to use annotations.
   component.addAnnotation({
     name:"track1",
-    html:"Things I like",
+    description: {text: "Things I like"},
     className: 'my-annotation',
     regions: [
       {start: 2, end: 2},
@@ -74,7 +74,7 @@ function runDemo () {
   component.addAnnotations([
     {
       name:"track2",
-      html:"Things you like",
+      description: {text: "Things you like"},
       className: 'your-annotation',
       regions: [
         {start: 7, end: 40},
@@ -86,9 +86,12 @@ function runDemo () {
     },
     {
       name: 'uniqid001',
-      html: 'A handy note',
-      className: 'exon',
+      description: {text: 'A handy note'},
       regions: [{start: 450, end: 567}]
+    },
+    {
+      name: 'Defaults all the way',
+      regions: [{start: 600, end: 605}, {start: 700, end: 720}]
     }
   ]);
 
