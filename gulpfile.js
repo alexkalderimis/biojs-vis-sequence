@@ -46,21 +46,19 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('default'));
 });
 
-
+// Run tests.
 gulp.task('test', ['test-unit', 'test-dom']);
 
-
+// Run the unit tests.
 gulp.task('test-unit', function () {
     return gulp.src('./test/unit/**/*.js', {read: false})
         .pipe(mocha({reporter: 'spec',
                     useColors: false}));
 });
 
-
+// Run the integration tests, that rely on the DOM.
 gulp.task('test-dom', ["build-test"], function () {
-  return gulp
-  .src('test/index.html')
-  .pipe(mochaPhantomJS());
+  return gulp.src('test/index.html').pipe(mochaPhantomJS());
 });
 
 // browserify debug
@@ -72,8 +70,6 @@ gulp.task('build-test',['init'], function() {
     .pipe(chmod(644))
     .pipe(gulp.dest(buildDir));
 });
-
-
 
 gulp.task('coveralls', function () {
     return gulp.src('coverage/lcov.info')
