@@ -59,29 +59,38 @@ function runDemo () {
   // How to use annotations.
   component.addAnnotation({
     name:"track1",
-    html:"<br> Example of <b>HTML</b>",
-    color:"green",
+    html:"Things I like",
+    className: 'my-annotation',
     regions: [
       {start: 2, end: 2},
       {start: 20, end: 30},
       {start: 31, end: 43},
       {start: 44, end: 44},
-      {start: 50, end: 90}
+      {start: 50, end: 90},
+      {start: 200, end: 220}
     ]
   });
 
-  component.addAnnotation({
-    name:"track2",
-    html:"<br> Example of <b>HTML</b>",
-    color:"green",
-    regions: [
-      {start: 7, end: 40},
-      {start: 45, end: 45},
-      {start: 47, end: 48},
-      {start: 49, end: 55},
-      {start: 80, end: 91}
-    ]
-  });
+  component.addAnnotations([
+    {
+      name:"track2",
+      html:"Things you like",
+      className: 'your-annotation',
+      regions: [
+        {start: 7, end: 40},
+        {start: 45, end: 45},
+        {start: 47, end: 48},
+        {start: 49, end: 55},
+        {start: 80, end: 91}
+      ]
+    },
+    {
+      name: 'uniqid001',
+      html: 'A handy note',
+      className: 'exon',
+      regions: [{start: 450, end: 567}]
+    }
+  ]);
 
   //mySequence.setSequence("P");
 

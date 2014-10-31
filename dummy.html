@@ -13,6 +13,8 @@
     <style>
     .seq-base.bbb, .interbase.bbb { background: red; color: white; }
     .seq-base.ccc, .interbase.ccc { background: blue; color: white; }
+    .my-annotation {background: #17947f; color: white;}
+    .your-annotation {background: #2c35a1; color: white;}
     </style>
 </head>
 
@@ -31,6 +33,12 @@
         <button class="btn btn-warning"
             onclick="component.clearSequence('Nothing to see here');">
             Clear
+        </button>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-default"
+            onclick="component.toggleAnnotations()">
+            Toggle annotations
         </button>
     </div>
 
